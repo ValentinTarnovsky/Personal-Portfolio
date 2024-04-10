@@ -1,26 +1,29 @@
 module.exports = {
-    root: true,
-    env: { browser: true, es2020: true },
-    extends: [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
+    env: {
+        browser: true,
+        commonjs: true,
+        es2021: true,
+    },
+    overrides: [
+        {
+            env: {
+                node: true,
+            },
+            files: [
+                ".eslintrc.{js,cjs}",
+            ],
+            parserOptions: {
+                sourceType: "script",
+            },
+        },
     ],
-    ignorePatterns: ["dist", ".eslintrc.cjs"],
-    parserOptions: { ecmaVersion: "latest", sourceType: "module" },
-    settings: { react: { version: "18.2" } },
-    plugins: ["react-refresh"],
+    parserOptions: {
+        "ecmaVersion": "latest",
+    },
     rules: {
-        // Reglas de React
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "off",
-        "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-        "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "always" }],
-        "react/jsx-first-prop-new-line": ["error", "multiline"],
-        "react/jsx-space-before-closing": ["error", "never"],
-
         // Reglas Generales
+        "global-require": "off",
+        "no-process-env": "off",
         "semi": ["error", "always"],
         "quotes": ["error", "double"],
         "jsx-quotes": ["error", "prefer-double"],
@@ -33,7 +36,6 @@ module.exports = {
 
         // Reglas de Interlineados
         "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 1 }],
-        "linebreak-style": ["error", "windows"],
         "eol-last": ["error", "never"],
 
         // Reglas de Variables y Constantes
@@ -42,7 +44,7 @@ module.exports = {
         // Reglas de Funciones
         "func-style": ["error", "expression"],
         "no-spaced-func": "error",
-        "max-statements": ["error", 15],
+        "max-statements": ["error", 20],
         "arrow-parens": ["error", "always"],
 
         // Reglas de Arrays
