@@ -1,1 +1,4 @@
 cambiar copyright a made with ♥️ by Me!
+
+checkear si se usan los z index de las variables
+add contact form

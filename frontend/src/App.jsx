@@ -1,8 +1,10 @@
 import "./app.scss";
 
+import Main from "./layout/Main/Main";
+
 const App = () => {
     return (
-        <h1>Hola mundo!</h1>
+        <Main/>
     );
 };
 

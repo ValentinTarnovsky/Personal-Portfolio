@@ -1,0 +1,9 @@
+.container {
+    max-width: 994px;
+    margin-inline: 1.5rem;
+}
+@media screen and (max-width: 340px) {
+    .container {
+        margin-inline: 1rem;
+    }
+}
