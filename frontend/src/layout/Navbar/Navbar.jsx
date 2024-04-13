@@ -28,7 +28,7 @@ const Navbar = () => {
 
                 <Box
                     className={isMenuOpen ? "nav__toggle show-icon" : "nav__toggle"}
-                    onClick={() => handleOnClickShowMenu()}>
+                    onClick={handleOnClickShowMenu}>
                     <MenuLineIcon className="nav__burger"/>
                     <CloseLineIcon className="nav__close"/>
                 </Box>
@@ -38,19 +38,22 @@ const Navbar = () => {
                 <ul className="nav__list">
                     <li><a
                         href="#about"
-                        className="nav__link nav__link--close">
+                        className="nav__link nav__link--close"
+                        onClick={handleOnClickShowMenu}>
                             About Me
                     </a></li>
 
                     <li><a
                         href="#skills"
-                        className="nav__link nav__link--close">
+                        className="nav__link nav__link--close"
+                        onClick={handleOnClickShowMenu}>
                             Skills
                     </a></li>
 
                     <li><a
                         href="#projects"
-                        className="nav__link nav__link--close">
+                        className="nav__link nav__link--close"
+                        onClick={handleOnClickShowMenu}>
                             Projects
                     </a></li>
                     <li className="dropdown__item">
@@ -62,7 +65,8 @@ const Navbar = () => {
                             <li>
                                 <a
                                     className="dropdown__link"
-                                    id="dark-theme-toggle">
+                                    id="dark-theme-toggle"
+                                    onClick={handleOnClickShowMenu}>
                                     <MoonFillIcon/> Dark
                                 </a>
                             </li>
@@ -70,7 +74,8 @@ const Navbar = () => {
                             <li>
                                 <a
                                     className="dropdown__link"
-                                    id="light-theme-toggle">
+                                    id="light-theme-toggle"
+                                    onClick={handleOnClickShowMenu}>
                                     <SunFillIcon/> Light
                                 </a>
                             </li>
@@ -83,15 +88,18 @@ const Navbar = () => {
 
                         <ul className="dropdown__menu">
                             <li>
-                                <a className="dropdown__link">
-                                    English
+                                <a
+                                    className="dropdown__link"
+                                    onClick={handleOnClickShowMenu}>
+                                        English
                                 </a>
                             </li>
 
                             <li>
                                 <a
                                     href="/index _es.html"
-                                    className="dropdown__link">
+                                    className="dropdown__link"
+                                    onClick={handleOnClickShowMenu}>
                                     Spanish
                                 </a>
                             </li>
