@@ -1,4 +1,5 @@
-cambiar copyright a made with ♥️ by Me!
-
-checkear si se usan los z index de las variables
 add contact form
+
+CHECKEAR TODO EL uSO DE IDS
+
+actualizar bien los readme de git y poner bien los links en los projectos

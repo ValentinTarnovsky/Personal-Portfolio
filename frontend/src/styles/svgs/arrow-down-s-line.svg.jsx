@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ArrowDownIcon = (props) => {
+const SvgArrowDownIcon = (props) => {
     const { height, width, color, className } = props;
 
     return (
@@ -16,17 +16,17 @@ const ArrowDownIcon = (props) => {
     );
 };
 
-ArrowDownIcon.propTypes = {
+SvgArrowDownIcon.propTypes = {
     height: PropTypes.string,
     width: PropTypes.string,
     color: PropTypes.string,
     className: PropTypes.string,
 };
 
-ArrowDownIcon.defaultProps = {
+SvgArrowDownIcon.defaultProps = {
     height: "24px",
     width: "24px",
     color: "#FAFAFA",
 };
 
-export default ArrowDownIcon;
+export default SvgArrowDownIcon;

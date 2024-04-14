@@ -30,7 +30,8 @@
         margin-bottom: 0.5rem;
     }
     &__tech {
-        font-size: 2rem;
+        margin-top: .5rem;
+        font-size: 1.75rem;
         color: var(--white-color-2);
         i {
             margin-right: 0.5rem;
@@ -45,22 +46,6 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        a {
-            border: 2px solid var(--main-color);
-            border-radius: 0.3rem;
-            text-align: center;
-            font-weight: var(--font-semi-bold);
-            color: var(--white-color);
-            padding: 0.3rem;
-            width: 48%;
-            transition: all 0.3s;
-            &:hover {
-                background-color: var(--black-color-lighten);
-            }
-            i {
-                margin-right: 0.5rem;
-            }
-        }
     }
 }
 

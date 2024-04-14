@@ -3,12 +3,12 @@ import { useState } from "react";
 
 import "./navbar.scss";
 
-import ArrowDownIcon from "../../styles/svgs/arrow-down-s-line.svg";
-import CloseLineIcon from "../../styles/svgs/close-line.svg";
-import CodeBoxIcon from "../../styles/svgs/code-box-fill.svg";
-import MenuLineIcon from "../../styles/svgs/menu-line.svg";
-import MoonFillIcon from "../../styles/svgs/moon-fill.svg";
-import SunFillIcon from "../../styles/svgs/sun-fill.svg";
+import SvgArrowDownIcon from "../../styles/svgs/arrow-down-s-line.svg";
+import SvgCloseLineIcon from "../../styles/svgs/close-line.svg";
+import SvgCodeBoxIcon from "../../styles/svgs/code-box-fill.svg";
+import SvgMenuLineIcon from "../../styles/svgs/menu-line.svg";
+import SvgMoonFillIcon from "../../styles/svgs/moon-fill.svg";
+import SvgSunFillIcon from "../../styles/svgs/sun-fill.svg";
 
 const Navbar = () => {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
@@ -23,14 +23,14 @@ const Navbar = () => {
                 <a
                     href="#"
                     className="nav__logo">
-                    <CodeBoxIcon/> VALENTIN
+                    <SvgCodeBoxIcon/> VALENTIN
                 </a>
 
                 <Box
                     className={isMenuOpen ? "nav__toggle show-icon" : "nav__toggle"}
                     onClick={handleOnClickShowMenu}>
-                    <MenuLineIcon className="nav__burger"/>
-                    <CloseLineIcon className="nav__close"/>
+                    <SvgMenuLineIcon className="nav__burger"/>
+                    <SvgCloseLineIcon className="nav__close"/>
                 </Box>
             </Box>
             <Box
@@ -58,7 +58,7 @@ const Navbar = () => {
                     </a></li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
-                            <MoonFillIcon className="dropdown__svgicon"/><ArrowDownIcon className="dropdown__arrow"/>
+                            <SvgMoonFillIcon className="dropdown__svgicon"/><SvgArrowDownIcon className="dropdown__arrow"/>
                         </Box>
 
                         <ul className="dropdown__menu">
@@ -67,7 +67,7 @@ const Navbar = () => {
                                     className="dropdown__link"
                                     id="dark-theme-toggle"
                                     onClick={handleOnClickShowMenu}>
-                                    <MoonFillIcon/> Dark
+                                    <SvgMoonFillIcon/> Dark
                                 </a>
                             </li>
 
@@ -76,14 +76,14 @@ const Navbar = () => {
                                     className="dropdown__link"
                                     id="light-theme-toggle"
                                     onClick={handleOnClickShowMenu}>
-                                    <SunFillIcon/> Light
+                                    <SvgSunFillIcon/> Light
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
-                            <span className="dropdown__svgicon">En</span> <ArrowDownIcon className="dropdown__arrow"/>
+                            <span className="dropdown__svgicon">En</span> <SvgArrowDownIcon className="dropdown__arrow"/>
                         </Box>
 
                         <ul className="dropdown__menu">

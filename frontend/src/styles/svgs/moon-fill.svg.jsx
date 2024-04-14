@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const MoonFillIcon = (props) => {
+const SvgMoonFillIcon = (props) => {
     const { height, width, color, className } = props;
 
     return (
@@ -16,17 +16,17 @@ const MoonFillIcon = (props) => {
     );
 };
 
-MoonFillIcon.propTypes = {
+SvgMoonFillIcon.propTypes = {
     height: PropTypes.string,
     width: PropTypes.string,
     color: PropTypes.string,
     className: PropTypes.string,
 };
 
-MoonFillIcon.defaultProps = {
+SvgMoonFillIcon.defaultProps = {
     height: "24px",
     width: "24px",
     color: "#FAFAFA",
 };
 
-export default MoonFillIcon;
+export default SvgMoonFillIcon;

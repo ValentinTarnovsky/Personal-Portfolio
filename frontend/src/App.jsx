@@ -1,10 +1,10 @@
 import "./app.scss";
 
-import Main from "./layout/Main/Main";
+import LinkRouter from "./LinkRouter/LinkRouter";
 
 const App = () => {
     return (
-        <Main/>
+        <LinkRouter/>
     );
 };
 

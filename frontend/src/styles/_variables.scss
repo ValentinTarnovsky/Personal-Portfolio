@@ -1,6 +1,6 @@
 // Variables
 :root {
-    --header-height: 4rem;
+    --header-height: 3.5rem;
     --container-margin: 3rem;
     --section-padding: 1.5rem;
 
@@ -12,6 +12,7 @@
     --white-color: #FAFAFA;
     --white-color-2: #FAFAFA45;
     --body-color: hsl(220, 100%, 97%);
+    --link-color: #206eed;
 
     #root.light-theme {
     --main-color: #2cabff;
@@ -33,9 +34,4 @@
     --font-regular: 400;
     --font-semi-bold: 600;
     --font-bold: 800;
-
-    // Z-index
-    --z-tooltip: 10;
-    --z-fixed: 100;
-
 }

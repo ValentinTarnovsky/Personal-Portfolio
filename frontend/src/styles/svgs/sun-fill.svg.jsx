@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const SunFillIcon = (props) => {
+const SvgSunFillIcon = (props) => {
     const { height, width, color, className } = props;
 
     return (
@@ -16,17 +16,17 @@ const SunFillIcon = (props) => {
     );
 };
 
-SunFillIcon.propTypes = {
+SvgSunFillIcon.propTypes = {
     height: PropTypes.string,
     width: PropTypes.string,
     color: PropTypes.string,
     className: PropTypes.string,
 };
 
-SunFillIcon.defaultProps = {
+SvgSunFillIcon.defaultProps = {
     height: "24px",
     width: "24px",
     color: "#FAFAFA",
 };
 
-export default SunFillIcon;
+export default SvgSunFillIcon;

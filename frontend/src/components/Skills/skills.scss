@@ -1,0 +1,74 @@
+.skills {
+    padding: var(--section-padding);
+    &__box {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__cont {
+        width: 45%;
+    }
+    .skill {
+        &__name {
+            font-weight: var(--font-bold);
+            color: var(--white-color);
+            text-transform: uppercase;
+            margin: 1.25rem 0;
+        }
+
+        &__bar {
+            height: 1rem;
+            background: var(--black-color-lighten);
+            border-radius: 3px;
+        }
+
+        &__per {
+            color: var(--black-color);
+            height: 1rem;
+            background: var(--main-color);
+            border-radius: 3px;
+            position: relative;
+            animation: fillBars 2.5s 1;
+        }
+
+        &__per::before {
+            content: attr(per);
+            position: absolute;
+            padding: 4px 6px;
+            background: var(--white-color);
+            border-radius: 4px;
+            font-size: 12px;
+            top: -35px;
+            right: 0;
+            transform: translateX(50%);
+        }
+
+        &__per::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--white-color);
+            top: -18px;
+            right: 0;
+            transform: translateX(50%) rotate(45deg);
+            border-radius: 2px;
+        }
+    }
+
+    @keyframes fillBars {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 992px) {
+        &__box {
+            flex-direction: column;
+        }
+        &__cont {
+            width: 100%;
+        }
+    }
+}

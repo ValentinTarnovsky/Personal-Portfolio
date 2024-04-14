@@ -1,23 +1,20 @@
-import { Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 import "./main.scss";
 
-import Portfolio from "../../pages/Portfolio/Portfolio";
-import NoPage from "../../pages/NoPage/NoPage";
+import Home from "../../components/Home/Home";
+import About from "../../components/About/About";
+import Skills from "../../components/Skills/Skills";
+import Projects from "../../components/Projects/Projects";
 
 const Main = () => {
     return (
         <Box
             component="main"
             className="main">
-            <Routes>
-                <Route
-                    path="/"
-                    element={<Portfolio/>}/>
-                <Route
-                    path="*"
-                    element={<NoPage/>}/>
-            </Routes>
+            <Home/>
+            <About/>
+            <Skills/>
+            <Projects/>
         </Box>
     );
 };

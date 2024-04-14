@@ -1,7 +1,7 @@
 
 import PropTypes from "prop-types";
 
-const CodeBoxIcon = (props) => {
+const SvgCodeBoxIcon = (props) => {
     const { height, width, color, className } = props;
 
     return (
@@ -17,17 +17,17 @@ const CodeBoxIcon = (props) => {
     );
 };
 
-CodeBoxIcon.propTypes = {
+SvgCodeBoxIcon.propTypes = {
     height: PropTypes.string,
     width: PropTypes.string,
     color: PropTypes.string,
     className: PropTypes.string,
 };
 
-CodeBoxIcon.defaultProps = {
+SvgCodeBoxIcon.defaultProps = {
     height: "24px",
     width: "24px",
     color: "#FAFAFA",
 };
 
-export default CodeBoxIcon;
+export default SvgCodeBoxIcon;

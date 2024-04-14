@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const CloseLineIcon = (props) => {
+const SvgCloseLineIcon = (props) => {
     const { height, width, color, className } = props;
 
     return (
@@ -16,17 +16,17 @@ const CloseLineIcon = (props) => {
     );
 };
 
-CloseLineIcon.propTypes = {
+SvgCloseLineIcon.propTypes = {
     height: PropTypes.string,
     width: PropTypes.string,
     color: PropTypes.string,
     className: PropTypes.string,
 };
 
-CloseLineIcon.defaultProps = {
+SvgCloseLineIcon.defaultProps = {
     height: "24px",
     width: "24px",
     color: "#FAFAFA",
 };
 
-export default CloseLineIcon;
+export default SvgCloseLineIcon;

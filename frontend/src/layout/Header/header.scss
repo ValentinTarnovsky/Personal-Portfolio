@@ -4,5 +4,6 @@
     left: 0;
     width: 100%;
     background-color: var(--black-color);
-    z-index: var(--z-fixed);
+    z-index: 10;
+    box-shadow: 6px 0 10px var(--black-color-light);
 }
