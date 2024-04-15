@@ -13,14 +13,20 @@
     --white-color-2: #FAFAFA45;
     --body-color: hsl(220, 100%, 97%);
     --link-color: #206eed;
+    svg {
+        fill: var(--white-color);
+    }
 
-    #root.light-theme {
-    --main-color: #2cabff;
-    --black-color: #ecf0f1;
+    #config-manager.light-theme {
+    --main-color: #1ca4ff;
+    --black-color: #c8c8c9;
     --black-color-light: #9aa4a4;
     --black-color-lighten: #79848f;
     --white-color: #0B1215;
     --white-color-2: #0B121565;
+        svg {
+        fill: var(--white-color);
+    }
     }
 
     // Fonts & size

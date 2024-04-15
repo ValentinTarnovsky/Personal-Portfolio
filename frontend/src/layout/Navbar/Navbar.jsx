@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import "./navbar.scss";
 
@@ -9,12 +9,22 @@ import SvgCodeBoxIcon from "../../styles/svgs/code-box-fill.svg";
 import SvgMenuLineIcon from "../../styles/svgs/menu-line.svg";
 import SvgMoonFillIcon from "../../styles/svgs/moon-fill.svg";
 import SvgSunFillIcon from "../../styles/svgs/sun-fill.svg";
+import MyContext from "../../contexts/MyContext";
 
 const Navbar = () => {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+    const { setTheme, setLang } = useContext(MyContext);
 
     const handleOnClickShowMenu = () => {
         isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
+    };
+
+    const handleOnClickSetTheme = (theme) => {
+        setTheme(theme);
+    };
+
+    const handleOnClickSetLang = (lang) => {
+        setLang(lang);
     };
 
     return (
@@ -73,7 +83,10 @@ const Navbar = () => {
                                 <a
                                     className="dropdown__link"
                                     id="dark-theme-toggle"
-                                    onClick={handleOnClickShowMenu}>
+                                    onClick={() => {
+                                        handleOnClickShowMenu();
+                                        handleOnClickSetTheme("dark");
+                                    }}>
                                     <SvgMoonFillIcon/> Dark
                                 </a>
                             </li>
@@ -82,7 +95,10 @@ const Navbar = () => {
                                 <a
                                     className="dropdown__link"
                                     id="light-theme-toggle"
-                                    onClick={handleOnClickShowMenu}>
+                                    onClick={() => {
+                                        handleOnClickShowMenu();
+                                        handleOnClickSetTheme("light");
+                                    }}>
                                     <SvgSunFillIcon/> Light
                                 </a>
                             </li>
@@ -97,16 +113,21 @@ const Navbar = () => {
                             <li>
                                 <a
                                     className="dropdown__link"
-                                    onClick={handleOnClickShowMenu}>
+                                    onClick={() => {
+                                        handleOnClickShowMenu();
+                                        handleOnClickSetLang("en");
+                                    }}>
                                         English
                                 </a>
                             </li>
 
                             <li>
                                 <a
-                                    href="/index _es.html"
                                     className="dropdown__link"
-                                    onClick={handleOnClickShowMenu}>
+                                    onClick={() => {
+                                        handleOnClickShowMenu();
+                                        handleOnClickSetLang("es");
+                                    }}>
                                     Spanish
                                 </a>
                             </li>

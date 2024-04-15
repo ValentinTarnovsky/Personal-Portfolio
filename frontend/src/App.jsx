@@ -1,10 +1,13 @@
 import "./app.scss";
 
 import LinkRouter from "./LinkRouter/LinkRouter";
+import MyProvaider from "./contexts/MyProvaider";
 
 const App = () => {
     return (
-        <LinkRouter/>
+        <MyProvaider>
+            <LinkRouter/>
+        </MyProvaider>
     );
 };
 

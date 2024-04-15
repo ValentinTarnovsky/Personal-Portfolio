@@ -1,0 +1,11 @@
+add contact form
+
+CHECKEAR TODO EL uSO DE IDS
+
+actualizar bien los readme de git y poner bien los links en los projectos
+
+svgs quedan blancos en light theme
+
+la scrollbar queda en dark theme
+
+cambiar el boton de submit contact
