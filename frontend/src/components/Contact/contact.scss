@@ -1,0 +1,7 @@
+.contact {
+    padding: var(--section-padding);
+    &__button {
+        color: var(--main-color) !important;
+        margin-bottom: 1rem !important;
+    }
+}

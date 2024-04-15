@@ -56,6 +56,13 @@ const Navbar = () => {
                         onClick={handleOnClickShowMenu}>
                             Projects
                     </a></li>
+
+                    <li><a
+                        href="#contact"
+                        className="nav__link nav__link--close"
+                        onClick={handleOnClickShowMenu}>
+                            Contact
+                    </a></li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
                             <SvgMoonFillIcon className="dropdown__svgicon"/><SvgArrowDownIcon className="dropdown__arrow"/>

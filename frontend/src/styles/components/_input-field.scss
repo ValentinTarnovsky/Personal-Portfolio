@@ -1,0 +1,42 @@
+.input-field {
+    width: 100%;
+    margin-bottom: 1rem !important;
+
+    .MuiFormLabel-root {
+        color: var(--main-color);
+    }
+
+    label.Mui-focused {
+        color: var(--main-color) !important;
+    }
+
+    div input+fieldset,
+    div textarea+fieldset {
+        border: 1px solid var(--main-color) !important;
+    }
+
+    div input:focus+fieldset,
+    div textarea:focus~.MuiOutlinedInput-notchedOutline {
+        border: 1px solid var(--main-color) !important;
+    }
+
+    &--invalid {
+
+        p,
+        label,
+        label.Mui-focused {
+            color: var(--main-color) !important;
+        }
+
+        div input+fieldset,
+        div input:focus+fieldset,
+        div textarea+fieldset,
+        div textarea:focus~.MuiOutlinedInput-notchedOutline {
+            border: 1px solid red !important;
+        }
+    }
+    input,
+    textarea {
+        color: var(--white-color);
+    }
+}
