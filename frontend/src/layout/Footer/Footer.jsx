@@ -1,14 +1,20 @@
 import { Box, Tooltip } from "@mui/material";
+import { useContext } from "react";
 import "./footer.scss";
 
+import MyContext from "../../contexts/MyContext";
+
 const Footer = () => {
+    const { langData } = useContext(MyContext);
+    const getLangText = (prop) => langData && langData.footer && langData.footer[prop] ? langData.footer[prop] : prop;
+
     return (
         <Box
             component="footer"
             className="footer">
             <Box className="footer__info">
                 <Box className="footer__info__copy">
-                    <p>Made with ❤️ by <span>Me!</span></p>
+                    <p>{getLangText("made")} ❤️ {getLangText("by")} <span>{getLangText("me")}</span></p>
                 </Box>
                 <Box className="footer__info__media">
                     <p>

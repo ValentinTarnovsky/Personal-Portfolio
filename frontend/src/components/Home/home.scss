@@ -34,6 +34,18 @@
                 font-weight: var(--font-semi-bold);
                 font-size: 2.2rem;
             }
+            &__links {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+                &__item {
+                    background-color: transparent !important;
+                    &:hover {
+                        border-color: var(--white-color-2);
+                        color: var(--main-color);
+                    }
+                }
+            }
         }
     }
     @media screen and (max-width: 992px) {

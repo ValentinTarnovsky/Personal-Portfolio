@@ -1,8 +1,13 @@
 import { Box } from "@mui/material";
+import { useContext } from "react";
 
 import "./skills.scss";
 
+import MyContext from "../../contexts/MyContext";
+
 const Skills = () => {
+    const { langData } = useContext(MyContext);
+    const getLangText = (prop) => langData && langData.skill && langData.skill[prop] ? langData.skill[prop] : prop;
 
     const skillsLeft = [
         {
@@ -65,7 +70,7 @@ const Skills = () => {
             className="skills container spacing"
             id="skills"
             data-aos="fade-up">
-            <h3 className="title">Skills</h3>
+            <h3 className="title">{getLangText("title")}</h3>
             <Box className="skills__box">
                 <Box className="skills__cont">
                     {skillsLeft?.map((skill) => (

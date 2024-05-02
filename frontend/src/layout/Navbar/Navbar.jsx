@@ -9,11 +9,13 @@ import SvgCodeBoxIcon from "../../styles/svgs/code-box-fill.svg";
 import SvgMenuLineIcon from "../../styles/svgs/menu-line.svg";
 import SvgMoonFillIcon from "../../styles/svgs/moon-fill.svg";
 import SvgSunFillIcon from "../../styles/svgs/sun-fill.svg";
+
 import MyContext from "../../contexts/MyContext";
 
 const Navbar = () => {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
-    const { setTheme, setLang } = useContext(MyContext);
+    const { setTheme, setLang, themeData, langData } = useContext(MyContext);
+    const getLangText = (prop) => langData && langData.navbar && langData.navbar[prop] ? langData.navbar[prop] : prop;
 
     const handleOnClickShowMenu = () => {
         isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
@@ -50,32 +52,32 @@ const Navbar = () => {
                         href="#about"
                         className="nav__link nav__link--close"
                         onClick={handleOnClickShowMenu}>
-                            About Me
+                        {getLangText("about")}
                     </a></li>
 
                     <li><a
                         href="#skills"
                         className="nav__link nav__link--close"
                         onClick={handleOnClickShowMenu}>
-                            Skills
+                        {getLangText("skill")}
                     </a></li>
 
                     <li><a
                         href="#projects"
                         className="nav__link nav__link--close"
                         onClick={handleOnClickShowMenu}>
-                            Projects
+                        {getLangText("project")}
                     </a></li>
 
                     <li><a
                         href="#contact"
                         className="nav__link nav__link--close"
                         onClick={handleOnClickShowMenu}>
-                            Contact
+                        {getLangText("contact")}
                     </a></li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
-                            <SvgMoonFillIcon className="dropdown__svgicon"/><SvgArrowDownIcon className="dropdown__arrow"/>
+                            {themeData === "dark" ? <SvgMoonFillIcon className="dropdown__svgicon"/> : <SvgSunFillIcon/>}<SvgArrowDownIcon className="dropdown__arrow"/>
                         </Box>
 
                         <ul className="dropdown__menu">
@@ -87,7 +89,7 @@ const Navbar = () => {
                                         handleOnClickShowMenu();
                                         handleOnClickSetTheme("dark");
                                     }}>
-                                    <SvgMoonFillIcon/> Dark
+                                    <SvgMoonFillIcon/> {getLangText("dark")}
                                 </a>
                             </li>
 
@@ -99,14 +101,14 @@ const Navbar = () => {
                                         handleOnClickShowMenu();
                                         handleOnClickSetTheme("light");
                                     }}>
-                                    <SvgSunFillIcon/> Light
+                                    <SvgSunFillIcon/> {getLangText("light")}
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
-                            <span className="dropdown__svgicon">En</span> <SvgArrowDownIcon className="dropdown__arrow"/>
+                            <span className="dropdown__svgicon">{getLangText("lang")}</span> <SvgArrowDownIcon className="dropdown__arrow"/>
                         </Box>
 
                         <ul className="dropdown__menu">
@@ -117,7 +119,7 @@ const Navbar = () => {
                                         handleOnClickShowMenu();
                                         handleOnClickSetLang("en");
                                     }}>
-                                        English
+                                    {getLangText("en")}
                                 </a>
                             </li>
 
@@ -128,7 +130,7 @@ const Navbar = () => {
                                         handleOnClickShowMenu();
                                         handleOnClickSetLang("es");
                                     }}>
-                                    Spanish
+                                    {getLangText("es")}
                                 </a>
                             </li>
                         </ul>

@@ -6,16 +6,18 @@
     &__cont {
         display: flex;
         justify-content: space-evenly;
-        &__table,
-        &__text {
-            width: 45%;
+        gap: 1rem;
+        flex-direction: column;
+        &__table {
+            text-align: center;
         }
         table {
             width: 100%;
+            text-align: center;
             td {
                 padding: 0.5rem 0;
-                text-align: left;
-                height: 4rem;
+                text-align: center;
+                height: 2.5rem;
                 width: 50%;
             }
             .item {
@@ -45,11 +47,6 @@
         &__cont {
             flex-direction: column;
             max-width: calc(100vw - var(--container-margin));
-            &__table,
-            &__text {
-                width: 100%;
-                text-align: center;
-            }
             table {
                 td {
                     height: 2.5rem;

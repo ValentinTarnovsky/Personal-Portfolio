@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useFormik } from "formik";
 import { Box, Button } from "@mui/material";
 // import axios from "axios";
 import "./contact.scss";
 
-import validationSchema from "./formContact.validation.js";
+import validationSchemaEn from "./formContactEn.validation.js";
+import validationSchemaEs from "./formContactEs.validation.js";
+import MyContext from "../../contexts/MyContext";
 
 import InputField from "../InputField.jsx";
 import Alert from "../Alert.jsx";
@@ -13,6 +15,9 @@ import Alert from "../Alert.jsx";
 const Contact = () => {
     const [ openAlert, setOpenAlert ] = useState(false);
 
+    const { langData, portfolioConfig } = useContext(MyContext);
+    const getLangText = (prop) => langData && langData.contact && langData.contact[prop] ? langData.contact[prop] : prop;
+    const validationSchema = portfolioConfig && portfolioConfig.length > 0 && portfolioConfig[1].lang === "en" ? validationSchemaEn : validationSchemaEs;
     // const sendEmail = async (values) => {
     //     const { fullname, telephone, email, consult } = values;
 
@@ -60,7 +65,7 @@ const Contact = () => {
             <h3 className="title">Contact</h3>
 
             <InputField
-                label="Full Name"
+                label={getLangText("name")}
                 name="fullname"
                 value={formik.values.fullname}
                 onChange={formik.handleChange}
@@ -70,7 +75,7 @@ const Contact = () => {
                 inputProps={{ maxLength: 25 }}/>
 
             <InputField
-                label="E-mail"
+                label={getLangText("mail")}
                 name="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
@@ -80,7 +85,7 @@ const Contact = () => {
                 inputProps={{ maxLength: 50 }}/>
 
             <InputField
-                label="Comments"
+                label={getLangText("comments")}
                 name="consult"
                 multiline
                 rows={5}
@@ -94,7 +99,7 @@ const Contact = () => {
             <Button
                 className="contact__button"
                 type="submit">
-                Submit consult
+                {getLangText("submit")}
             </Button>
 
             <Alert

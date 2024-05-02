@@ -4,7 +4,10 @@ import { useMemo } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import MyContext from "./MyContext";
 
-const MyProvaider = (props) => {
+import { es } from "../lang/es";
+import { en } from "../lang/en";
+
+const MyProvider = (props) => {
     const { children } = props;
     const { items, setItem } = useLocalStorage({ portfolioConfig: [{ theme: "dark" }, { lang: "en" }] });
 
@@ -37,11 +40,23 @@ const MyProvaider = (props) => {
         setItem("portfolioConfig", updatedPortfolioConfig);
     };
 
+    const themeData = useMemo(() => {
+        const theme = items.portfolioConfig && items.portfolioConfig.length > 0 ? items.portfolioConfig[0].theme : "";
+        return theme === "dark" ? "dark" : "light";
+    }, [items]);
+
+    const langData = useMemo(() => {
+        const lang = items.portfolioConfig && items.portfolioConfig.length > 0 ? items.portfolioConfig[1].lang : "";
+        return lang === "en" ? en : es;
+    }, [items]);
+
     const contextValue = useMemo(() => {
         return {
             portfolioConfig: items.portfolioConfig,
             setTheme,
+            themeData,
             setLang,
+            langData,
         };
     }, [items]);
 
@@ -52,8 +67,8 @@ const MyProvaider = (props) => {
     );
 };
 
-MyProvaider.propTypes = {
+MyProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default MyProvaider;
+export default MyProvider;

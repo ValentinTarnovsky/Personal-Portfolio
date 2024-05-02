@@ -7,13 +7,11 @@ import NoPage from "../pages/NoPage/NoPage";
 import MyContext from "../contexts/MyContext";
 
 const LinkRouter = () => {
-    const { portfolioConfig } = useContext(MyContext);
-
-    const theme = portfolioConfig && portfolioConfig.length > 0 ? portfolioConfig[0].theme : "";
+    const { themeData } = useContext(MyContext);
 
     return (
         <Box
-            className={theme === "light" && "light-theme"}
+            className={themeData === "light" && "light-theme"}
             id="config-manager">
             <Routes>
                 <Route

@@ -1,10 +1,15 @@
 import { Box } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import SvgComment from "../../styles/svgs/comment.svg";
+import MyContext from "../../contexts/MyContext";
+import LinkButton from "../linkButton";
 
 import "./home.scss";
 
 const Home = () => {
+    const { langData } = useContext(MyContext);
+    const getLangText = (prop) => langData && langData.home && langData.home[prop] ? langData.home[prop] : prop;
+
     const [ displayText, setDisplayText ] = useState("");
     const texts = [ "Web Developer...", "Freelancer...", "Fullstack engineer..." ];
     let textIndex = 0;
@@ -41,10 +46,22 @@ const Home = () => {
         <Box className="home container">
             <Box className="home__text">
                 <Box className="home__text__cont">
-                    <p><span>Hello!</span></p>
-                    <p>I&apos;m <span>Valentin</span></p>
+                    <p><span>{getLangText("hello")}</span></p>
+                    <p>{getLangText("im")} <span>Valentin</span></p>
                     <p><span>Tarnovsky</span></p>
                     <p><SvgComment/>{displayText}</p>
+                    <Box className="home__text__cont__links">
+                        <LinkButton
+                            className="home__text__cont__links__item"
+                            href="https://github.com/ValentinTarnovsky">
+                            <i className="fa-brands fa-github"></i>GitHub
+                        </LinkButton>
+                        <LinkButton
+                            className="home__text__cont__links__item"
+                            href="https://www.linkedin.com/in/valentin-tarnovsky/">
+                            <i className="fa-brands fa-linkedin"></i>LinkedIn
+                        </LinkButton>
+                    </Box>
                 </Box>
             </Box>
         </Box>

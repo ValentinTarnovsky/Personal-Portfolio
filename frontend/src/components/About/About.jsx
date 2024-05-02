@@ -1,62 +1,53 @@
 import { Box } from "@mui/material";
+import { useContext } from "react";
 import "./about.scss";
 
+import MyContext from "../../contexts/MyContext";
+
+import AboutMe from "./AboutMe";
+
 const About = () => {
+    const { langData } = useContext(MyContext);
+    const getLangText = (prop) => langData && langData.about && langData.about[prop] ? langData.about[prop] : prop;
     return (
         <Box
             className="about container spacing"
             id="about"
             data-aos="fade-up">
-            <h3 className="title">About Me</h3>
+            <h3 className="title">{getLangText("title")}</h3>
             <Box className="about__cont">
                 <Box className="about__cont__table">
                     <table>
                         <tbody>
                             <tr>
-                                <td className="item">Name:</td>
+                                <td className="item">{getLangText("name")}</td>
                                 <td className="subitem">Valentin Tarnovsky</td>
                             </tr>
                             <tr>
-                                <td className="item">Age:</td>
+                                <td className="item">{getLangText("age")}</td>
                                 <td className="subitem">21</td>
                             </tr>
                             <tr>
-                                <td className="item">Country:</td>
+                                <td className="item">{getLangText("country")}</td>
                                 <td className="subitem">Argentina</td>
                             </tr>
                             <tr>
-                                <td className="item">Languages:</td>
-                                <td className="subitem">Spanish & English</td>
+                                <td className="item">{getLangText("languages")}</td>
+                                <td className="subitem">{getLangText("languages2")}</td>
                             </tr>
                             <tr>
-                                <td className="item">Objective:</td>
-                                <td className="subitem">Work in an IT company</td>
+                                <td className="item">{getLangText("objetive")}</td>
+                                <td className="subitem">{getLangText("objetive2")}</td>
                             </tr>
                             <tr>
-                                <td className="item">Passion:</td>
-                                <td className="subitem">Coding & Training</td>
+                                <td className="item">{getLangText("passion")}</td>
+                                <td className="subitem">{getLangText("passion2")}</td>
                             </tr>
                         </tbody>
                     </table>
                 </Box>
                 <Box className="about__cont__text">
-                    <p><b>Coding</b> is one of my greatest <b>passions</b>, and web development is a tangible expression of this passion.
-                        <br/>
-                        Graduated in Front-End from UTN. Currently, I am immersed in a FullStack development <b>Bootcamp</b> on the <a
-                            href="https://www.educacionit.com/bootcamp-full-stack?gclid=CjwKCAjw4ZWkBhA4EiwAVJXwqbBGZK3J-TJAFzESuiTV8w8Y3CfLYsfOcBcECPF6ccZkvdrsa5OS6xoC09YQAvD_BwE"
-                            target="_blank"
-                            rel="noreferrer"><b>EducationIT</b></a> platform, backed by Manhattan College. My focus spans both Frontend and Backend.
-                        <br/>
-                        Throughout my life, I&apos;ve developed unwavering <b>determination</b> and <b>focus</b> in what I love, like coding and
-                        training, bringing together a <b>healthy</b> mind and body.
-                        <br/>
-                        I am naturally adaptable, proactive, and creative. Disciplined and organized.
-                        <br/>
-                        I enjoy <b>dealing with challenges</b>, researching, and <b>solving problems</b>. I work well in a team and
-                        appreciate collaboration to overcome obstacles.
-                        <br/>
-                        Currently focused on my bootcamp, I am <b>committed to my continuous growth</b> in the development world.
-                    </p>
+                    <AboutMe/>
                 </Box>
             </Box>
             <Box className="about__cv">
@@ -64,7 +55,7 @@ const About = () => {
                     href="/pdf/CV-Tarnovsky-Valentin-en.pdf"
                     download>
                     <div className="animated-button">
-                        download cv<span></span><span></span><span></span><span></span>
+                        {getLangText("download")}<span></span><span></span><span></span><span></span>
                     </div>
                 </a>
             </Box>
