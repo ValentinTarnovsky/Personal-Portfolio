@@ -40,6 +40,7 @@ export const es = {
         "mail": "E-mail",
         "comments": "Comentarios",
         "submit": "Enviar consulta",
+        "alert": "Gracias por ponerte en contacto! Pronto recibiras mi respuesta!",
     },
     "footer": {
         "made": "Hecho con",

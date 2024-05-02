@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useFormik } from "formik";
 import { Box, Button } from "@mui/material";
-// import axios from "axios";
+import axios from "axios";
 import "./contact.scss";
 
 import validationSchemaEn from "./formContactEn.validation.js";
@@ -10,7 +10,6 @@ import MyContext from "../../contexts/MyContext";
 
 import InputField from "../InputField.jsx";
 import Alert from "../Alert.jsx";
-// import { MAIL_URL } from "../../../constants/api.js";
 
 const Contact = () => {
     const [ openAlert, setOpenAlert ] = useState(false);
@@ -18,37 +17,39 @@ const Contact = () => {
     const { langData, portfolioConfig } = useContext(MyContext);
     const getLangText = (prop) => langData && langData.contact && langData.contact[prop] ? langData.contact[prop] : prop;
     const validationSchema = portfolioConfig && portfolioConfig.length > 0 && portfolioConfig[1].lang === "en" ? validationSchemaEn : validationSchemaEs;
-    // const sendEmail = async (values) => {
-    //     const { fullname, telephone, email, consult } = values;
 
-    //     const queryParams = new URLSearchParams({
-    //         name: fullname,
-    //         email: email,
-    //         phone: telephone,
-    //         query: consult,
-    //     });
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    const MAIL_URL = `${BACKEND_URL}/api/send-mail`;
 
-    //     const url = `${MAIL_URL}?${queryParams.toString()}`;
+    const sendEmail = async (values) => {
+        const { fullname, email, consult } = values;
 
-    //     try {
-    //         const response = await axios.get(url);
-    //         return response.data;
-    //     } catch (error) {
-    //         console.error(error);
-    //         return "Error sending email";
-    //     }
-    // };
+        const queryParams = new URLSearchParams({
+            name: fullname,
+            email: email,
+            query: consult,
+        });
+
+        const url = `${MAIL_URL}?${queryParams.toString()}`;
+
+        try {
+            const response = await axios.get(url);
+            return response.data;
+        } catch (error) {
+            console.error(error);
+            return "Error sending email";
+        }
+    };
 
     const formik = useFormik({
         initialValues: {
             fullname: "",
-            telephone: "",
             email: "",
             consult: "",
         },
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
-            // sendEmail(values);
+            sendEmail(values);
             setOpenAlert(true);
             resetForm();
         },
@@ -105,7 +106,7 @@ const Contact = () => {
             <Alert
                 openAlert={openAlert}
                 setOpenAlert={setOpenAlert}
-                message="Thank you for reaching out. I will be answering you soon!"/>
+                message={getLangText("alert")}/>
         </Box>
     );
 };

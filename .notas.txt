@@ -1,7 +1,3 @@
-add contact form
-
-CHECKEAR TODO EL uSO DE IDS
-
 actualizar bien los readme de git y poner bien los links en los projectos
 
 la scrollbar queda en dark theme
@@ -11,3 +7,7 @@ cambiar el boton de submit contact
 actualizar cv y linkdin
 
 subir el cv al download del about me
+
+los .env de prod
+
+cambiar el alert del submit xq es feo

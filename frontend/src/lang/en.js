@@ -40,6 +40,7 @@ export const en = {
         "mail": "E-mail",
         "comments": "Comments",
         "submit": "Submit consult",
+        "alert": "Thank you for reaching out. I will be answering you soon!",
     },
     "footer": {
         "made": "Made with",
