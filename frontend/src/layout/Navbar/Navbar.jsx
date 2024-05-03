@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 
 import "./navbar.scss";
 
@@ -13,7 +13,7 @@ import SvgSunFillIcon from "../../styles/svgs/sun-fill.svg";
 import MyContext from "../../contexts/MyContext";
 
 const Navbar = () => {
-    const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { setTheme, setLang, themeData, langData } = useContext(MyContext);
     const getLangText = (prop) => langData && langData.navbar && langData.navbar[prop] ? langData.navbar[prop] : prop;
 
@@ -29,20 +29,33 @@ const Navbar = () => {
         setLang(lang);
     };
 
+    const handleOnClickScrollTo = (targetId) => {
+        setTimeout(() => {
+            const navbarHeight = 5 * 16;
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - navbarHeight,
+                    behavior: 'smooth',
+                });
+            }
+        }, 100);
+    }
+
     return (
         <nav className="nav container">
             <Box className="nav__data">
                 <a
                     href="#"
                     className="nav__logo">
-                    <SvgCodeBoxIcon/> VALENTIN
+                    <SvgCodeBoxIcon /> VALENTIN
                 </a>
 
                 <Box
                     className={isMenuOpen ? "nav__toggle show-icon" : "nav__toggle"}
                     onClick={handleOnClickShowMenu}>
-                    <SvgMenuLineIcon className="nav__burger"/>
-                    <SvgCloseLineIcon className="nav__close"/>
+                    <SvgMenuLineIcon className="nav__burger" />
+                    <SvgCloseLineIcon className="nav__close" />
                 </Box>
             </Box>
             <Box
@@ -51,33 +64,33 @@ const Navbar = () => {
                     <li><a
                         href="#about"
                         className="nav__link nav__link--close"
-                        onClick={handleOnClickShowMenu}>
+                        onClick={() => handleOnClickScrollTo('about')}>
                         {getLangText("about")}
                     </a></li>
 
                     <li><a
                         href="#skills"
                         className="nav__link nav__link--close"
-                        onClick={handleOnClickShowMenu}>
+                        onClick={() => handleOnClickScrollTo('skills')}>
                         {getLangText("skill")}
                     </a></li>
 
                     <li><a
                         href="#projects"
                         className="nav__link nav__link--close"
-                        onClick={handleOnClickShowMenu}>
+                        onClick={() => handleOnClickScrollTo('projects')}>
                         {getLangText("project")}
                     </a></li>
 
                     <li><a
                         href="#contact"
                         className="nav__link nav__link--close"
-                        onClick={handleOnClickShowMenu}>
+                        onClick={() => handleOnClickScrollTo('contact')}>
                         {getLangText("contact")}
                     </a></li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
-                            {themeData === "dark" ? <SvgMoonFillIcon className="dropdown__svgicon"/> : <SvgSunFillIcon/>}<SvgArrowDownIcon className="dropdown__arrow"/>
+                            {themeData === "dark" ? <SvgMoonFillIcon className="dropdown__svgicon" /> : <SvgSunFillIcon />}<SvgArrowDownIcon className="dropdown__arrow" />
                         </Box>
 
                         <ul className="dropdown__menu">
@@ -89,7 +102,7 @@ const Navbar = () => {
                                         handleOnClickShowMenu();
                                         handleOnClickSetTheme("dark");
                                     }}>
-                                    <SvgMoonFillIcon/> {getLangText("dark")}
+                                    <SvgMoonFillIcon /> {getLangText("dark")}
                                 </a>
                             </li>
 
@@ -101,14 +114,14 @@ const Navbar = () => {
                                         handleOnClickShowMenu();
                                         handleOnClickSetTheme("light");
                                     }}>
-                                    <SvgSunFillIcon/> {getLangText("light")}
+                                    <SvgSunFillIcon /> {getLangText("light")}
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li className="dropdown__item">
                         <Box className="nav__link">
-                            <span className="dropdown__svgicon">{getLangText("lang")}</span> <SvgArrowDownIcon className="dropdown__arrow"/>
+                            <span className="dropdown__svgicon">{getLangText("lang")}</span> <SvgArrowDownIcon className="dropdown__arrow" />
                         </Box>
 
                         <ul className="dropdown__menu">
@@ -135,6 +148,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </li>
+
                 </ul>
             </Box>
         </nav>
