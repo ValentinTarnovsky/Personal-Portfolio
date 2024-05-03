@@ -62,7 +62,8 @@ const Contact = () => {
             id="contact"
             noValidate
             autoComplete="off"
-            onSubmit={formik.handleSubmit}>
+            onSubmit={formik.handleSubmit}
+            data-aos="fade-up">
             <h3 className="title">Contact</h3>
 
             <InputField
