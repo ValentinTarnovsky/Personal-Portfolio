@@ -2,6 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 import { useContext, useEffect } from "react";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Portfolio from "../pages/Portfolio/Portfolio";
 import NoPage from "../pages/NoPage/NoPage";
 import MyContext from "../contexts/MyContext";
@@ -16,6 +19,10 @@ const LinkRouter = () => {
         root.style.setProperty("--scrollbar-thumb-background", themeData === "light" ? "#1ca4ff" : "#f4b944");
         root.style.setProperty("--scrollbar-thumb-border-radius", ".25rem");
     }, [themeData]);
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
 
     return (
         <Box
