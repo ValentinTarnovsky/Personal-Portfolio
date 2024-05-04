@@ -18,7 +18,7 @@ const Projects = () => {
             <ProjectCard
                 title="Personal Portfolio"
                 gitLink="https://github.com/ValentinTarnovsky/Personal-Portfolio"
-                demoLink="https://personal-portfolio-blush-seven.vercel.app/"
+                demoLink="https://personal-portfolio-gray-alpha.vercel.app/"
                 imgName="portfolio.png"
                 tec={{ react: true, node: true, sass: true, git: true }}/>
             <ProjectCard
