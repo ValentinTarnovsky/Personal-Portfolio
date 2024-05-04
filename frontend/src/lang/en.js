@@ -26,6 +26,7 @@ export const en = {
         "passion": "Passion:",
         "passion2": "Coding & Training",
         "download": "download CV",
+        "info": "The CV will be in the language selected on the page*",
     },
     "skill": {
         "title": "Skills",

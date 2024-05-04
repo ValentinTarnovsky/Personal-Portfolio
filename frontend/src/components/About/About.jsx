@@ -7,7 +7,8 @@ import MyContext from "../../contexts/MyContext";
 import AboutMe from "./AboutMe";
 
 const About = () => {
-    const { langData } = useContext(MyContext);
+    const { langData, portfolioConfig } = useContext(MyContext);
+    const lang = portfolioConfig && portfolioConfig.length > 0 ? portfolioConfig[1].lang : "en";
     const getLangText = (prop) => langData && langData.about && langData.about[prop] ? langData.about[prop] : prop;
     return (
         <Box
@@ -52,13 +53,14 @@ const About = () => {
             </Box>
             <Box className="about__cv">
                 <a
-                    href="/pdf/CV-Tarnovsky-Valentin-en.pdf"
+                    href={lang === "en" ? "/pdf/CV-Portfolio-Tarnovsky-Valentin-En.pdf" : "/pdf/CV-Portfolio-Tarnovsky-Valentin-Es.pdf"}
                     download>
                     <div className="animated-button">
                         {getLangText("download")}<span></span><span></span><span></span><span></span>
                     </div>
                 </a>
             </Box>
+            <span className="download-info">{getLangText("info")}</span>
         </Box>
     );
 };

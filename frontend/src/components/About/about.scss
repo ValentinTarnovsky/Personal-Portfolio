@@ -3,6 +3,8 @@
     box-shadow: 2px 2px 5px var(--black-color-light);
     padding: var(--section-padding);
     color: var(--white-color);
+    display: flex;
+    flex-direction: column;
     &__cont {
         display: flex;
         justify-content: space-evenly;
@@ -54,5 +56,11 @@
                 }
             }
         }
+    }
+    .download-info {
+        margin-top: .25rem;
+        font-size: .75rem;
+        align-self: center;
+        color: var(--main-color);
     }
 }
