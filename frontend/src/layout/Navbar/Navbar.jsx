@@ -40,6 +40,7 @@ const Navbar = () => {
                 });
             }
         }, 100);
+        handleOnClickShowMenu();
     }
 
     return (
