@@ -16,15 +16,15 @@ const Projects = () => {
             data-aos="fade-up">
             <h3 className="title">{getLangText("title")}</h3>
             <ProjectCard
-                title="My Portfolio"
-                gitLink="https://github.com/ValentinTarnovsky/mern-portfolio"
+                title="Personal Portfolio"
+                gitLink="https://github.com/ValentinTarnovsky/Personal-Portfolio"
                 demoLink="https://valentin-tarnovsky-portfolio.netlify.app/"
                 imgName="portfolio.png"
                 tec={{ react: true, node: true, sass: true, git: true }}/>
             <ProjectCard
                 title="MERN E-Commerce"
-                gitLink="https://github.com/ValentinTarnovsky/proyecto-integrador-frontend"
-                demoLink="https://mi-tienda-valentin.netlify.app/"
+                gitLink="https://github.com/ValentinTarnovsky/Final-Project-MERN-eCommerce"
+                demoLink="https://final-project-mern-e-commerce.vercel.app/"
                 imgName="ecommerce.png"
                 tec={{ mongodb: true, express: true, react: true, node: true, sass: true, git: true, js: true, photoshop: true }}/>
             <p>{getLangText("more")}</p>
