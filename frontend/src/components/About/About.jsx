@@ -26,7 +26,7 @@ const About = () => {
                             </tr>
                             <tr>
                                 <td className="item">{getLangText("age")}</td>
-                                <td className="subitem">21</td>
+                                <td className="subitem">22</td>
                             </tr>
                             <tr>
                                 <td className="item">{getLangText("country")}</td>
