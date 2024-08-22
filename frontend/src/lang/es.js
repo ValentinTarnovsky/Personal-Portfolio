@@ -36,7 +36,7 @@ export const es = {
         "more": "Pronto mas proyectos...",
     },
     "contact": {
-        "title": "Contact",
+        "title": "Contacto",
         "name": "Nombre Completo",
         "mail": "E-mail",
         "comments": "Comentarios",
